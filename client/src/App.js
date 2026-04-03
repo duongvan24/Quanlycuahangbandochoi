@@ -1,44 +1,51 @@
 import React from 'react';
-import './App.css'; // Quan trọng nhất là dòng này để kết nối CSS
+import './App.css';
 
 function App() {
   const toys = [
-    { id: 1, name: 'Robot Chiến Binh', price: '550.000đ', img: 'https://via.placeholder.com/200x150?text=Robot' },
-    { id: 2, name: 'Siêu Xe Điều Khiển', price: '320.000đ', img: 'https://via.placeholder.com/200x150?text=Car' },
-    { id: 3, name: 'Búp Bê Công Chúa', price: '450.000đ', img: 'https://via.placeholder.com/200x150?text=Doll' },
-    { id: 4, name: 'Bộ Xếp Hình Lego', price: '890.000đ', img: 'https://via.placeholder.com/200x150?text=Lego' },
+    { id: 1, name: 'Robot Optimus Prime', price: '1.250.000đ', img: 'https://images.unsplash.com/photo-1531693251400-38df35776dc7?w=400' },
+    { id: 2, name: 'Siêu Xe Porsche 911', price: '850.000đ', img: 'https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=400' },
+    { id: 3, name: 'Lego Star Wars', price: '2.100.000đ', img: 'https://images.unsplash.com/photo-1585366119957-e556f4d0484c?w=400' },
+    { id: 4, name: 'Gấu Bông Totoro', price: '350.000đ', img: 'https://images.unsplash.com/photo-1559449182-263d81d4285e?w=400' },
   ];
 
   return (
     <div className="container">
       <nav className="navbar">
-        <h2>WORLD OF TOYS</h2>
+        <div className="logo">WORLD OF TOYS</div>
         <div className="nav-links">
-          <span>Trang Chủ</span>
-          <span>Sản Phẩm</span>
-          <span>Giỏ Hàng</span>
+          <span>Khám phá</span>
+          <span>Bán chạy</span>
+          <span>Liên hệ</span>
+          <span style={{color: '#2563eb'}}>🛒 (0)</span>
         </div>
       </nav>
 
-      <div className="banner">
-        <h1>BIG SALE 50%</h1>
-        <p>Chào mừng ngày hội đồ chơi toàn cầu</p>
-      </div>
+      <header className="banner">
+        <h1>Vương Quốc Đồ Chơi</h1>
+        <p>Mang niềm vui trọn vẹn đến cho bé yêu của bạn</p>
+      </header>
 
-      <main className="product-grid">
-        {toys.map(toy => (
-          <div key={toy.id} className="product-card">
-            <img src={toy.img} alt={toy.name} />
-            <h3>{toy.name}</h3>
-            <p style={{color: '#ff4d4f', fontWeight: 'bold'}}>{toy.price}</p>
-            <button className="btn-buy">MUA NGAY</button>
-          </div>
-        ))}
+      <main>
+        <h2 style={{textAlign: 'center', marginBottom: '2rem'}}>Sản phẩm mới về</h2>
+        <div className="product-grid">
+          {toys.map(toy => (
+            <div key={toy.id} className="product-card">
+              <img src={toy.img} alt={toy.name} />
+              <div className="product-info">
+                <h3>{toy.name}</h3>
+                <p className="price">{toy.price}</p>
+                <button className="btn-buy">Thêm vào giỏ</button>
+              </div>
+            </div>
+          ))}
+        </div>
       </main>
 
-      <footer style={{textAlign: 'center', padding: '20px', color: '#888'}}>
-        © 2026 World of Toys - Văn Dương
-      </footer>
+      <footer style={{textAlign: 'center', padding: '3rem', color: '#94a3b8', fontSize: '0.9rem'}}>
+        <hr style={{border: '0', borderTop: '1px solid #e2e8f0', marginBottom: '2rem'}} />
+        <p>© 2026 World of Toys - Thiết kế bởi Vũ Văn Dương</p>
+      </div>
     </div>
   );
 }
